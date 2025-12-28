@@ -5,7 +5,7 @@ import Signup from './pages/Signup';
 import AddStudent from './pages/AddStudent';
 import Dashboard from './pages/Dashboard';
 import StudentView from './pages/StudentView';
-import { LogOut } from 'lucide-react';
+import { LogOut, ShieldCheck, GraduationCap } from 'lucide-react';
 
 const Navbar = () => {
   const location = useLocation();
@@ -22,10 +22,27 @@ const Navbar = () => {
     navigate('/login');
   };
 
+  const getPortalInfo = () => {
+    if(location.pathname.includes('admin') || location.pathname === '/add'){
+      return {title: 'Admin Portal', icon: <ShieldCheck size={24} />, color: 'text-indigo-600' };
+    }
+    
+    if(location.pathname.includes('student')) {
+      return { title: 'Student Portal', icon: <GraduationCap size={24} />, color: 'text-emerald-600' };
+    }
+
+    return { title: 'Student Admin System', icon: null, color: 'text-gray-700' };
+  }
+
+  const info = getPortalInfo();
+
   return (
     <nav className="bg-white shadow-sm p-4 mb-8 sticky top-0 z-10">
       <div className="max-w-4xl mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold text-indigo-600">🎓 Student Portal</h1>
+        <div className={`flex items-center gap-2 text-xl font-bold ${info.color}`}>
+          {info.icon}
+          <h1>{info.title}</h1>
+        </div>
         
         {!hideLogout && (
           <button 

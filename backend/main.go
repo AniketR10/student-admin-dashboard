@@ -115,6 +115,8 @@ import (
 			"id": user.ID,
 			"name": user.Name,
 			"role": user.Role,
+			"email": user.Email,
+			"course": user.Course,
 		},
 	   })
 	}

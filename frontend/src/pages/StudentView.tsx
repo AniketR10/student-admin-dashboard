@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, Mail, BookOpen, LogOut, ShieldCheck } from 'lucide-react';
+import { User, Mail, BookOpen, ShieldCheck } from 'lucide-react';
 
 const StudentView = () => {
   const navigate = useNavigate();
@@ -16,12 +16,6 @@ const StudentView = () => {
     
     setUser(JSON.parse(storedUser));
   }, [navigate]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('/login');
-  };
 
   if (!user) return null;
 
@@ -47,14 +41,6 @@ const StudentView = () => {
                 Student Account
               </p>
             </div>
-            
-            <button 
-              onClick={handleLogout}
-              className="flex items-center gap-2 text-gray-500 hover:text-red-600 transition-colors px-4 py-2 rounded-lg hover:bg-red-50"
-            >
-              <LogOut size={18} />
-              Logout
-            </button>
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">

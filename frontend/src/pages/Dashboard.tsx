@@ -26,7 +26,7 @@ const Dashboard = () => {
   };
 
   const handleDelete = async (id: number) => {
-    if(!window.confirm("Are you sure?")) return;
+    if(!window.confirm("Are you sure to Delete the Student?")) return;
     
     try {
       await axios.delete(`http://localhost:3000/api/students/${id}`);
