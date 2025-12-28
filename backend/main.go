@@ -1,12 +1,16 @@
-	package main
+package main
 
-	import(
-		"fmt"
-		"github.com/gofiber/fiber/v2"
-		"github.com/gofiber/fiber/v2/middleware/cors"
-		"gorm.io/gorm"
-		"gorm.io/driver/postgres"
-	)
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/joho/godotenv"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+)
 
 	var DB *gorm.DB
 
@@ -18,7 +22,7 @@
 	}
 
 	func initDb() {
-		connect := "postgresql://neondb_owner:npg_9RgUIw2pndHx@ep-wispy-hill-ad49osm5-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+		connect := os.Getenv("DB_URL")
 		var err error
 
 		DB, err = gorm.Open(postgres.Open(connect), &gorm.Config{})
@@ -66,6 +70,10 @@
 
 
 	func main(){
+		err := godotenv.Load()
+		if err != nil {
+			log.Fatal("error loading .env file")
+		}
 		app := fiber.New()
 		app.Use(cors.New(cors.Config{
 			AllowOrigins: "http://localhost:5173", //react app
