@@ -9,4 +9,5 @@ export interface StudentForm {
   name: string;
   email: string;
   course: string;
+  password: string;
 }

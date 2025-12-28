@@ -12,16 +12,21 @@ const AddStudent = () => {
   const [form, setForm] = useState<StudentForm>({ 
     name: '', 
     email: '', 
-    course: '' 
+    course: '' ,
+    password: '',
+
   });
 
   const handleSubmit = async (e: React.FormEvent) => {``
     e.preventDefault();
     try {
         setIsLoading(true);
-      await axios.post('http://localhost:3000/api/students', form);
+      await axios.post('http://localhost:3000/api/students', {
+        ...form,
+        role: "student"
+    });
       toast.success("Student added successfully!");
-      navigate('/');
+      navigate('/admin-dashboard');
     } catch (error: any) {
       const msg = error || "Something went wrong";
       toast.error(msg);
@@ -61,6 +66,17 @@ const AddStudent = () => {
               placeholder="Ex: john@example.com"
               value={form.email}
               onChange={(e) => setForm({...form, email: e.target.value})}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input 
+              required
+              type="password" 
+              className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+              placeholder="Set New Student's Password here."
+              value={form.password}
+              onChange={(e) => setForm({...form, password: e.target.value})}
             />
           </div>
 
