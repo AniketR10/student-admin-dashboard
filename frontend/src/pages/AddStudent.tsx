@@ -36,7 +36,7 @@ const AddStudent = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto">
+    <div className="max-w-md mx-auto mt-8">
       <Link to="/" className="text-gray-500 flex items-center gap-2 mb-4 hover:text-gray-800">
         <ArrowLeft size={18} /> Back to Dashboard
       </Link>

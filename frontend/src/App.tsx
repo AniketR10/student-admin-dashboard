@@ -37,7 +37,7 @@ const Navbar = () => {
   const info = getPortalInfo();
 
   return (
-    <nav className="bg-white shadow-sm p-4 mb-8 sticky top-0 z-10">
+    <nav className="bg-green-200 shadow-sm p-4 sticky top-0 z-10">
       <div className="max-w-4xl mx-auto flex justify-between items-center">
         <div className={`flex items-center gap-2 text-xl font-bold ${info.color}`}>
           {info.icon}
@@ -61,7 +61,7 @@ const Navbar = () => {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 text-gray-900 font-sans pb-10">
+      <div className="min-h-screen bg-green-100 text-gray-900 font-sans pb-10">
         <Toaster position="top-right" />
         
         <Navbar />

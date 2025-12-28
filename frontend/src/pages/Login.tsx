@@ -56,8 +56,8 @@ const Login = () => {
 
   if (loginType === 'selection') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-        <div className="max-w-md w-full -mt-20">
+      <div className="min-h-screen flex items-center justify-center bg-green-100 p-4">
+        <div className="max-w-md w-full -mt-40">
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
             <p className="text-gray-500">Choose your login portal to continue</p>
@@ -102,8 +102,8 @@ const Login = () => {
   const isAdmin = loginType === 'admin';
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm relative">
+    <div className="min-h-screen flex items-center justify-center bg-green-100 p-4 -mt-20">
+      <div className="bg-cyan-100 p-8 rounded-2xl shadow-lg w-full max-w-sm relative">
         
         <button 
           onClick={() => setLoginType('selection')}
