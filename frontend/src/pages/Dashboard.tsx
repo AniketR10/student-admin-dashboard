@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Trash2, UserPlus, Loader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import type { Student } from '../types';
+import { API_URL } from '../config';
 
 const Dashboard = () => {
   const [students, setStudents] = useState<Student[]>([]);
@@ -16,7 +17,7 @@ const Dashboard = () => {
   const fetchStudents = async () => {
     try {
         setIsLoading(true);
-      const res = await axios.get<Student[]>('http://localhost:3000/api/students');
+      const res = await axios.get<Student[]>(`${API_URL}/api/students`);
       setStudents(res.data);
     } catch (error) {
       toast.error("failed to fetch students");
@@ -29,7 +30,7 @@ const Dashboard = () => {
     if(!window.confirm("Are you sure to Delete the Student?")) return;
     
     try {
-      await axios.delete(`http://localhost:3000/api/students/${id}`);
+      await axios.delete(`${API_URL}/api/students/${id}`);
       toast.success("Student deleted!");
       fetchStudents();
     } catch (error) {

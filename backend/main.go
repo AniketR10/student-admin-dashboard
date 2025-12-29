@@ -188,8 +188,14 @@ import (
     }
 
 		app := fiber.New()
+
+		frontendUrl := os.Getenv("FRONTEND_URL")
+		if frontendUrl == ""{
+			frontendUrl = "http://localhost:5173"
+		}
+
 		app.Use(cors.New(cors.Config{
-			AllowOrigins: "http://localhost:5173",
+			AllowOrigins: frontendUrl,
 			AllowHeaders: "Origin, Content-Type, Accept",
 		}))
 

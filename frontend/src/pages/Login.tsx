@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { ShieldCheck, GraduationCap, ArrowLeft, Loader2 } from 'lucide-react';
+import { API_URL } from '../config';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:3000/api/login', {
+      const res = await axios.post(`${API_URL}/api/login`, {
         ...form,
         course: loginType === 'student' ? form.course : undefined
       });

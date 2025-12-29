@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import type { StudentForm } from '../types';
+import { API_URL } from '../config';
 
 const AddStudent = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const AddStudent = () => {
     e.preventDefault();
     try {
         setIsLoading(true);
-      await axios.post('http://localhost:3000/api/students', {
+      await axios.post(`${API_URL}/api/students`, {
         ...form,
         role: "student"
     });

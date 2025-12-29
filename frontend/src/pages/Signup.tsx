@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { API_URL } from '../config';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Signup = () => {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/signup', form);
+      await axios.post(`${API_URL}/api/signup`, form);
       toast.success("Account created! Please login.");
       navigate('/login');
     } catch (error: any) {

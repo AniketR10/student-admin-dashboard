@@ -67,7 +67,7 @@ const StudentView = () => {
 
           <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-3 text-green-800">
             <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-            <p className="text-sm font-medium">Your account is active and in good standing.</p>
+            <p className="text-sm font-medium">Your account is active.</p>
           </div>
 
         </div>
