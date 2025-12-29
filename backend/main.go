@@ -189,7 +189,7 @@ import (
 
 		app := fiber.New()
 
-		frontendUrl := os.Getenv("https://student-admin-dashboard-frontend.vercel.app")
+		frontendUrl := os.Getenv("FRONTEND_URL")
 		if frontendUrl == ""{
 			frontendUrl = "http://localhost:5173"
 		}
