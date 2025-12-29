@@ -178,7 +178,7 @@ import (
 	func main(){
 		err := godotenv.Load()
 		if err != nil {
-			log.Fatal("error loading .env file")
+			log.Println("error loading .env file")
 		}
 
 		SecretKey = []byte(os.Getenv("SECRET_KEY"))
@@ -211,8 +211,13 @@ import (
 
 		app.Post("/api/signup", Signup)
 		app.Post("/api/login", Login)
-		app.Get("/api/users", GetUsers)     
+		app.Get("/api/users", GetUsers)  
+		
+		port := os.Getenv("PORT")
+    if port == "" {
+        port = "3000"
+    }
 
-		app.Listen(":3000")
+		app.Listen(":" + port)
 
 	}
