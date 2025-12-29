@@ -37,6 +37,19 @@ A full-stack Student Management System built with **Go (Golang)** and **React (T
 - **👩‍🎓 Student Portal:**
   - Read-only profile view.
   - Displays assigned course and account status.
+    
+ ## 🧪 Demo Credentials
+
+Want to test the app, use these credentials:
+
+### 👨‍💼 **Admin Account**
+- **Email:** `yorawat987@gmail..com`
+- **Password:** `321`
+
+### 👨‍🎓 **Student Account**
+- **Email:** `stud1@edu.com`
+- **Password:** `12345`
+- **Course:** `EEE`
 
 
 ---
